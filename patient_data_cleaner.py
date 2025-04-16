@@ -41,7 +41,7 @@ Usage:
 import json
 import os
 import pdb
-import pandas as pd
+#import pandas as pd
 import sys
 
 def load_patient_data(filepath):
