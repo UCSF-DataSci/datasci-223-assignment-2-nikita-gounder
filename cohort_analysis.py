@@ -8,7 +8,7 @@ def analyze_patient_cohorts(input_file: str) -> pl.DataFrame:
     Args:
         input_file: Path to the input CSV file
         
-    Returns:
+    Returns:  
         DataFrame containing cohort analysis results with columns:
         - bmi_range: The BMI range (e.g., "Underweight", "Normal", "Overweight", "Obese")
         - avg_glucose: Mean glucose level by BMI range
@@ -31,13 +31,13 @@ def analyze_patient_cohorts(input_file: str) -> pl.DataFrame:
     ).pipe(
         lambda df: df.with_columns(
             pl.col("BMI").cut(  # Categorize BMI into defined ranges
-                breaks=[10, 18.5, 25, 30, 60],
+                breaks=[18.5, 25, 30],
                 labels=["Underweight", "Normal", "Overweight", "Obese"],
                 left_closed=True
             ).alias("bmi_range")
         )
     ).pipe(
-        lambda df: df.groupby("bmi_range").agg([  # Group by BMI range and calculate aggregates
+        lambda df: df.group_by("bmi_range").agg([  # Group by BMI range and calculate aggregates
             pl.col("Glucose").mean().alias("avg_glucose"),
             pl.count().alias("patient_count"),
             pl.col("Age").mean().alias("avg_age")

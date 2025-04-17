@@ -87,6 +87,8 @@ def clean_patient_data(patients):
         # BUG: Wrong method name (fill_na vs fillna)
         # FIX: Using int to convert ages to integers
         patient['age'] = int(patient.get('age', 0))
+
+        patient['gender'] = patient['gender']
         
         # BUG: Wrong method name (drop_duplcates vs drop_duplicates)
         # FIX: Drop duplicates at the end of this function
@@ -128,7 +130,7 @@ def main():
     print("Cleaned Patient Data:")
     for patient in cleaned_patients:
         # BUG: Using 'name' key but we changed it to 'nage'
-        print(f"Name: {patient['name']}, Age: {patient['age']}, Diagnosis: {patient['diagnosis']}")
+        print(f"Name: {patient['name']}, Age: {patient['age']}, Gender: {patient['gender']}, Diagnosis: {patient['diagnosis']}")
     
     # Return the cleaned data (useful for testing)
     return cleaned_patients

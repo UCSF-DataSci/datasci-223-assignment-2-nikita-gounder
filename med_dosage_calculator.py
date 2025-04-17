@@ -82,7 +82,7 @@ DOSAGE_FACTORS = {
 LOADING_DOSE_MEDICATIONS = [
     "amiodarone",
     "lorazepam",
-    "fentynal"
+    "fentanyl"
 ]
 
 def load_patient_data(filepath):
