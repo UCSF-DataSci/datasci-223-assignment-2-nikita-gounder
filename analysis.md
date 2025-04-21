@@ -8,8 +8,19 @@
 
 # Patterns / Insights
 - Higher BMI correlated with higher average glucose levels and were usually older patients
-- 
-- 
+- There were also the most obese patient with an average age of 33.8 and avg_glucose of 126.03
+- Age, average glucose, and count increase with BMI increase
+
+Cohort Analysis Summary:
+┌─────────────┬─────────────┬───────────────┬───────────┐
+│ bmi_range   ┆ avg_glucose ┆ patient_count ┆ avg_age   │
+│ ---         ┆ ---         ┆ ---           ┆ ---       │
+│ cat         ┆ f64         ┆ u32           ┆ f64       │
+╞═════════════╪═════════════╪═══════════════╪═══════════╡
+│ Underweight ┆ 95.195115   ┆ 26041         ┆ 23.980646 │
+│ Obese       ┆ 126.032016  ┆ 3066409       ┆ 33.82713  │
+│ Normal      ┆ 108.004737  ┆ 664064        ┆ 31.888848 │
+│ Overweight  ┆ 116.373363  ┆ 1165360       ┆ 32.880893 │
 
 # Polars' Features for Efficiency
 - Polars library allows for speed and efficiency through lazy evaluation to optimize query plans and faster backend processing 
